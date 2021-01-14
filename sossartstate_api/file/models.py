@@ -10,20 +10,17 @@ import uuid
 def get_upload_path(instance, filename):
     """Metodo para crear la ruta al archivo"""
     user_email = instance.custom_user.email
-    name
-    return 'Secctions/Resources/'+"%s/%s/%s" % (
+
+    return 'Folders/'+"%s/%s" % (
         user_email,
-        seccion,
-        filename
+        creat_at
     )
 
 class File(models.Model):
     """Represent a File object"""
-    codeFile = models.AutoField(auto_created=True, primary_key=True, serialize=False,
-                                verbose_name='ID')
     uploadOnFile = models.DateTimeField(auto_now_add=True)
-
-    file = models.FileField(upload_to='files/', blank=True)
+    folder = models.ForeignKey(Folder, related_name='files', on_delete=models.PROTECT)
+    file = models.FileField(upload_to=get_upload_path, blank=True)
 
     def __str__(self):
         return 'The File was created as: {}'.format(self.file.name)

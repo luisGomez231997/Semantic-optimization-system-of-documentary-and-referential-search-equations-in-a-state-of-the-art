@@ -33,6 +33,12 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
+LOCAL_APPS = [
+    'customuser',
+    'file',
+    'folder'
+]
+
 THIRD_PARTY_APPS = [
     'rest_framework',
     'corsheaders',
@@ -43,7 +49,7 @@ THIRD_PARTY_APPS = [
     'spacy'
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -60,10 +66,10 @@ REST_FRAMEWORK = {
 }
 
 REST_AUTH_SERIALIZERS = {
-#    "USER_DETAILS_SERIALIZER": "CustomUser.serializers.UserSerializer",
+    "USER_DETAILS_SERIALIZER": "customuser.serializers.UserSerializer",
 }
 REST_AUTH_REGISTER_SERIALIZERS = {
-#    "REGISTER_SERIALIZER": "CustomUser.serializers.RegisterUserSerializer",
+    "REGISTER_SERIALIZER": "customuser.serializers.RegisterUserSerializer",
 }
 
 
@@ -105,7 +111,8 @@ DATABASES = {
     }
 }
 
-
+# Configurate costumuser by Auth
+AUTH_USER_MODEL = 'customuser.CustomUser'
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {

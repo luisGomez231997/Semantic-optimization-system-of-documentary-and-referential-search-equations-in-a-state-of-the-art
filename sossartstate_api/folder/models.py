@@ -2,12 +2,10 @@ from django.db import models
 from django.utils import timezone
 
 # import to foreing models
-from users.models import CustomUser
+from customuser.models import CustomUser
 
 
-# Create model  to a Secction..........................................................
-
-
+# Create model  to a Folder..........................................................
 class Folder(models.Model):
     """Represent a Secction object"""
     name = models.CharField(max_length=100, null=False)

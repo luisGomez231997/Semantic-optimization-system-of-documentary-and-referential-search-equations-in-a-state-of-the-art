@@ -45,8 +45,6 @@ class FileList(ListAPIView):
     serializer_class = FileSerializer
 
 # Listar un File por id
-
-
 class FileDetail(RetrieveAPIView):
     queryset = File.objects.all()
     serializer_class = FileSerializer
