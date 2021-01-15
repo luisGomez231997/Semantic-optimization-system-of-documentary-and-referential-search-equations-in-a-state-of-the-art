@@ -1,7 +1,6 @@
 """Libreries and imports"""
 from decouple import config
 from pathlib import Path
-
 import urllib.parse as encoder
 import bibtexparser
 import requests
