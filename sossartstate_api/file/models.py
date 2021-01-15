@@ -9,8 +9,8 @@ import uuid
 
 def get_upload_path(instance, filename):
     """Metodo para crear la ruta al archivo"""
-    user_email = instance.custom_user.email
-
+    user_email = instance.folder.custom_user.email
+    creat_at = instance.uploadOnFile
     return 'Folders/'+"%s/%s" % (
         user_email,
         creat_at
