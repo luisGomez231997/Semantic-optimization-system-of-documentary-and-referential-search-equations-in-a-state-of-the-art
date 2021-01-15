@@ -25,7 +25,8 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'customuser',
     'file',
-    'folder'
+    'folder',
+    'commons'
 ]
 
 THIRD_PARTY_APPS = [
