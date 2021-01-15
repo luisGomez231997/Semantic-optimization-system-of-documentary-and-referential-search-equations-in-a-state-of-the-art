@@ -36,7 +36,7 @@ class Log_in(APIView):
                         token, created = Token.objects.get_or_create(
                             user=user_token)
                         """revisa el perfil del usuario"""
-                        objserializer = UserSerializer1(user_token).data
+                        objserializer = UserSerializer(user_token).data
                         """Identifica el plan del tenant"""
                         return Response({"message": "Login exitoso",
                                          "data":  {

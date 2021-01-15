@@ -1,5 +1,7 @@
 """Libreries and imports"""
 from decouple import config
+from pathlib import Path
+
 import urllib.parse as encoder
 import bibtexparser
 import requests
@@ -51,7 +53,6 @@ class CommonsFunctions():
         }
         # execute petition
         response = requests.get(path,headers=headers, params=params)
-        print(response.json())
         return response
 
     def convertJsonElsevierToDictionary(self, json):
@@ -76,7 +77,6 @@ class CommonsFunctions():
         with open(urlbibtex) as bibtex_file:
              bib_database = bibtexparser.load(bibtex_file)
              dictionary = bib_database.entries 
-        print(dictionary)
         return dictionary
 
     def convertDictionaryToJson(self, dictionary):
@@ -85,10 +85,8 @@ class CommonsFunctions():
             newdictionary = []
             for dic in dictionary:
                 newdictionary.append(json.dumps(dic))
-            print(newdictionary)
             return newdictionary
         else:
-            print(json.dumps(dictionary))
             return json.dumps(dictionary)
 
 

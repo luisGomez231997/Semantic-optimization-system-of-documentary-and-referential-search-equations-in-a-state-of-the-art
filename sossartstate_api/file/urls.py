@@ -1,13 +1,7 @@
 
 from django.urls import path
 
-from .views import (
-                    #file
-                    FileUploadView,
-                    FileDetail,
-                    FileList,
-                    FileDelete
-                    )
+from .views import *
 
 urlpatterns = [
     #file

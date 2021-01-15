@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/users/', include('customuser.urls')),
     path('api/file/', include('file.urls')),
     path('api/folder/', include('folder.urls')),
+    path('api/bibliometric/', include('commons.urls')),
 
 
 ] 
