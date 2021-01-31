@@ -36,7 +36,7 @@ class AnalizerBibliometric():
                 "keywords": self.keywords,
                 "document_type": self.document_types
              }
-        #print(data)
+        print(data)
         return data
 
 #y = AnalizerBibliometric()

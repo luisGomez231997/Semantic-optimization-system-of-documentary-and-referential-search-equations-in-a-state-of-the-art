@@ -35,6 +35,7 @@ class CommonsFunctions():
         }
         # execute petition
         response = requests.get(path,headers=headers, params=params)
+        print(response.json())
         return response.json()
 
     def getAbstractInfo(self, doi):
@@ -52,6 +53,7 @@ class CommonsFunctions():
         }
         # execute petition
         response = requests.get(path,headers=headers, params=params)
+        print(response)
         return response
 
     def convertJsonElsevierToDictionary(self, json):
@@ -87,6 +89,10 @@ class CommonsFunctions():
             return newdictionary
         else:
             return json.dumps(dictionary)
+ 
+ 
+x =  CommonsFunctions()
+x.searchInElsevier("Depp learning","Scopus")
 
 
-
+   
