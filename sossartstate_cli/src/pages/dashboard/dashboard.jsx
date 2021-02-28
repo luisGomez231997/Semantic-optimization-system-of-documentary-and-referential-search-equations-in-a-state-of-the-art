@@ -27,8 +27,7 @@ function Dashboard(props) {
         <Menu mode="inline">
           <SubMenu key="accountU" icon={<UserOutlined />} title="User Account">
             <Menu.Item key="accountU-1">Profile</Menu.Item>
-            <Menu.Item key="accountU-2">Configuration</Menu.Item>
-            <Menu.Item key="accountU-3">Log-Out</Menu.Item>
+            <Menu.Item key="accountU-2">Log-Out</Menu.Item>
           </SubMenu>
           <SubMenu
             key="knowledgeG"

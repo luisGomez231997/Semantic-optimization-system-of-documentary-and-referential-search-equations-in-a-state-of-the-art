@@ -1,3 +1,14 @@
+/*
+The components are javaScript structures than aren't any style
+particulary, it depend of  page style and design, are reusables
+and globals. The components not have transacctional logic, the
+only logic than it has is to renderer self or other component
+in the page.
+
+The components and layouts use notation const name = () => (), the page use 
+notation function name(){return ()}
+*/
+
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";

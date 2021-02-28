@@ -1,0 +1,2 @@
+/*the controlers o ctrl file are scripts to make the bussines logic in the application it call
+  the api files and operate the data retrived */

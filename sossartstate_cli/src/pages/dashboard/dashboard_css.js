@@ -1,3 +1,7 @@
+/* 
+   In this file save all styles than a page and her components.
+*/
+
 const dashboard_css = {
   layout_main: {
     minHeight: "100vh",
