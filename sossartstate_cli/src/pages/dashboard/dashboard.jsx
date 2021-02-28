@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout, Menu, Avatar } from "antd";
-import Css from "./dashboard";
+import Css from "./dashboard_css";
 import {
   PieChartOutlined,
   UserOutlined,
