@@ -1,19 +1,17 @@
 import "../assests/css/App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from "../pages/dashboard/dashboard";
+import Dashboard from "../pages/dashboard/dashboard.jsx";
 import Session from "../pages/session/session";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/">
-            <Dashboard />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Dashboard />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
