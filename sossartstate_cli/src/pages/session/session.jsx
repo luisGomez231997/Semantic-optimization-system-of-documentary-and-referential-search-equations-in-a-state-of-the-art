@@ -1,8 +1,7 @@
-import React from "react";
-import { Row, Col, Image } from "antd";
-import Login from "../_components/form-login";
-import banner from "../../assests/images/authentication.jpg";
-
+import React from 'react'
+import { Row, Col, Image } from 'antd'
+import Login from '../_components/form-login'
+import banner from '../../assests/images/authentication.jpg'
 
 function Session(props) {
   return (
@@ -11,8 +10,8 @@ function Session(props) {
         <Image
           src={banner}
           style={{
-            width: "100%",
-            height: "100%",
+            width: '100%',
+            height: '100%',
           }}
         />
       </Col>
@@ -20,7 +19,7 @@ function Session(props) {
         <Login />
       </Col>
     </Row>
-  );
+  )
 }
 
-export default Session;
+export default Session
