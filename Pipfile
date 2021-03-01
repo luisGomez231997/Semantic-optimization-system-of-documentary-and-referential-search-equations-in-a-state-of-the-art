@@ -35,6 +35,8 @@ wasabi = "==0.8.0"
 Django = "==3.1.0"
 markdown = "*"
 django-filter = "*"
+jellyfish = "*"
+textacy = "*"
 
 [dev-packages]
 
