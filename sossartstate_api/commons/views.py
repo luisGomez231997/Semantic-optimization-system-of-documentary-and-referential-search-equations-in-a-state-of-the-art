@@ -29,11 +29,13 @@ class ProcessBibtexView(APIView):
             ab = AnalizerBibliometric()
 
             # get the object reference and set the path the file.
-            data = request.data
-
-            obj = File.objects.get(id=request.data.get("idFile"))
-            ab.extractRelevantData(
-                cf.convertBibtextToListDictionary(obj.file.path))
+            list_bibtext = request.data.get("idFiles")
+            list_dictionarys = []
+            for identifier in list_bibtext:
+                obj = File.objects.get(id=identifier)
+                list_dictionarys.append(
+                    cf.convertBibtextToListDictionary(obj.file.path))
+                ab.extractRelevantData(list_dictionarys)
 
             # keept and agroup the relevant information.
             ab.getRelevantData()
@@ -73,6 +75,7 @@ class Log_in_Custom(APIView):
             if (user_querysets.is_active):
                 user = user_querysets
                 """valida que la contraseña propocionada sea correcta"""
+                print(check_password(password, user.password))
                 if(check_password(password, user.password)):
                     """Si la contraseña es correcta trae el usuario"""
                     user_token = CustomUser.objects.get(

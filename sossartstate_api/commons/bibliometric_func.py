@@ -15,15 +15,17 @@ class AnalizerBibliometric():
 
     def extractRelevantData(self, data):
         """This method extract all relevant metadata of bibtextfile set references"""
-        for reference in data:
-            self.authors.append(reference.get('author'))
-            self.languages.append(reference.get('language'))
-            self.years.append(reference.get('year'))
-            self.affiliation.append(reference.get('affiliation'))
-            self.author_keywords.append(reference.get('author_keywords'))
-            self.keywords.append(reference.get('keywords'))
-            self.document_types.append(reference.get('document_type'))
-            self.abstracts.append(reference.get('abstract'))
+        alldata = []
+        for listCollections in data:
+            for reference in listCollections:
+                self.authors.append(reference.get('author'))
+                self.languages.append(reference.get('language'))
+                self.years.append(reference.get('year'))
+                self.affiliation.append(reference.get('affiliation'))
+                self.author_keywords.append(reference.get('author_keywords'))
+                self.keywords.append(reference.get('keywords'))
+                self.document_types.append(reference.get('document_type'))
+                self.abstracts.append(reference.get('abstract'))
         self.polishedData("authors", self.authors, ". ")
         self.polishedData("affiliation", self.affiliation, "; ")
         self.polishedData("author_keywords", self.author_keywords, "; ")
