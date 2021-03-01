@@ -11,30 +11,31 @@ class CommonsFunctions():
     """This class contain all global functions to aplication"""
 
     def searchInElsevier(self, query, bdreference):
-        """Search documents in the BD Scopus or ScienceDirect, it make a http petiton with a query"""    
+        """Search documents in the BD Scopus or ScienceDirect, it make a http petiton with a query"""
         # petition path
         path = ""
         if bdreference == "Scopus":
-             path = config('ROOT_PATH_SCOPUS')
-        if bdreference =="ScienceDirect":
+            path = config('ROOT_PATH_SCOPUS')
+        if bdreference == "ScienceDirect":
             path = config('ROOT_PATH_SCIENCE_DIRECT')
         # petition header
         headers = {
             'Accept': 'application/json',
             'X-ELS-APIKey': config('X-ELS-APIKEY')
-            }
+        }
         # petition params
         params = {
-            'query': encoder.quote_plus(query), # query: equation search.
-            'subj': 'COMP', # subj: area of interest
-            'content': 'core', #  used to filter specific categories of content that should be searched
-            'count': '25', # max number results get.
-            'suppressNavLinks': True, # desactivate links.
-            'sort': 'relevance', # sort the result
-            'view': 'STANDARD' # i'm not allowed use the COMPLETE caracteristics.
+            'query': encoder.quote_plus(query),  # query: equation search.
+            'subj': 'COMP',  # subj: area of interest
+            'content': 'core',  # used to filter specific categories of content that should be searched
+            'count': '25',  # max number results get.
+            'suppressNavLinks': True,  # desactivate links.
+            'sort': 'relevance',  # sort the result
+            # i'm not allowed use the COMPLETE caracteristics.
+            'view': 'STANDARD'
         }
         # execute petition
-        response = requests.get(path,headers=headers, params=params)
+        response = requests.get(path, headers=headers, params=params)
         print(response.json())
         return response.json()
 
@@ -46,13 +47,14 @@ class CommonsFunctions():
         headers = {
             'Accept': 'application/json',
             'X-ELS-APIKey': config('X-ELS-APIKEY')
-            }
+        }
         # petition params
         params = {
-            'view': 'META' # i'm not allowed use the COMPLETE caracteristics FULL, META_ABS.
+            # i'm not allowed use the COMPLETE caracteristics FULL, META_ABS.
+            'view': 'META'
         }
         # execute petition
-        response = requests.get(path,headers=headers, params=params)
+        response = requests.get(path, headers=headers, params=params)
         print(response)
         return response
 
@@ -76,8 +78,8 @@ class CommonsFunctions():
         """Receive a Bibtex file and convert this in a dictionary with bibtex structure."""
         dictionary = []
         with open(urlbibtex) as bibtex_file:
-             bib_database = bibtexparser.load(bibtex_file)
-             dictionary = bib_database.entries 
+            bib_database = bibtexparser.load(bibtex_file)
+            dictionary = bib_database.entries
         return dictionary
 
     def convertDictionaryToJson(self, dictionary):
@@ -89,10 +91,7 @@ class CommonsFunctions():
             return newdictionary
         else:
             return json.dumps(dictionary)
- 
- 
-x =  CommonsFunctions()
-x.searchInElsevier("Depp learning","Scopus")
 
 
-   
+#x =  CommonsFunctions()
+#x.searchInElsevier("Depp learning","Scopus")

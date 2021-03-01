@@ -14,9 +14,11 @@ from rest_framework.generics import (
 
 from .serializers import *
 
+
 class FolderList(ListAPIView):
     queryset = Folder.objects.all()
     serializer_class = FolderSerializer
+
 
 class FolderGroupByUser(ListAPIView):
     queryset = Folder.objects.all()
@@ -24,21 +26,25 @@ class FolderGroupByUser(ListAPIView):
 
     def get_queryset(self):
         query = Folder.objects.filter(
-            custom_user__document_id=self.kwargs['document_id']
+            custom_user__document_id=self.kwargs['custom_user']
         )
         return query
+
 
 class FolderDetail(RetrieveAPIView):
     queryset = Folder.objects.all()
     serializer_class = FolderSerializer
 
+
 class FolderCreate(ListCreateAPIView):
     queryset = Folder.objects.all()
     serializer_class = CreateFolderSerializer
 
+
 class FolderUpdate(UpdateAPIView):
     queryset = Folder.objects.all()
     serializer_class = UpdateFolderSerializer
+
 
 class FolderDelete(DestroyAPIView):
     queryset = Folder.objects.all()

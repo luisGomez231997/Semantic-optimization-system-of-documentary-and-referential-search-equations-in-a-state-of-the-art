@@ -27,7 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'first_name', 'last_name',
+        fields = ['id', 'email', 'document_id', 'first_name', 'last_name',
                   'document_id', 'phone_number', 'address', 'date_of_birth',  'password', 'is_staff']
         extra_kwargs = {
             'password': {
@@ -72,6 +72,7 @@ class UserShowPublicDataSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ['id',
                   'first_name',
+                  'document_id',
                   'last_name',
                   'date_of_birth',
                   'email',

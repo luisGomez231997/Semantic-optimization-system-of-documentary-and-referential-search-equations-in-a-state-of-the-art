@@ -14,6 +14,7 @@ class FolderSerializer(serializers.ModelSerializer):
         model = Folder
         fields = [
             'name',
+            'document_id',
             'description',
             'custom_user',
             'creat_at',
